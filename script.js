@@ -1,64 +1,7 @@
 /* =========================================
-   DATA MENU
-=========================================
-
-   DI SINI tempat Anda mengganti menu.
-
-   Format tanggal:
-   "YYYY-MM-DD"
-
-========================================= */
-
-const menuData = {
-
-    "2026-09-08": {
-        title: "Menu Makan Bergizi",
-        rice: "Nasi Putih",
-        mainDish: "Ayam Goreng",
-        vegetable: "Tumis Kangkung",
-        fruit: "Pisang",
-        drink: "Susu",
-        updated: "8 September 2026, 06:30"
-    },
-
-    "2026-09-14": {
-        title: "Menu Makan Bergizi",
-        rice: "Nasi Putih",
-        mainDish: "Ayam Goreng",
-        vegetable: "Tumis Kangkung",
-        fruit: "Pisang",
-        drink: "Susu",
-        updated: "14 September 2026, 06:30"
-    },
-
-    "2026-09-15": {
-        title: "Menu Makan Bergizi",
-        rice: "Nasi Putih",
-        mainDish: "Telur Balado",
-        vegetable: "Sayur Sop",
-        fruit: "Apel",
-        drink: "Susu",
-        updated: "15 September 2026, 06:30"
-    },
-
-    "2026-09-16": {
-        title: "Menu Makan Bergizi",
-        rice: "Nasi Putih",
-        mainDish: "Ikan Goreng",
-        vegetable: "Capcay",
-        fruit: "Jeruk",
-        drink: "Susu",
-        updated: "16 September 2026, 06:30"
-    }
-
-};
-
-
-/* =========================================
    VARIABEL
 ========================================= */
 
-// Gunakan tanggal lokal
 const now = new Date();
 
 let currentDate = new Date(
@@ -69,7 +12,7 @@ let currentDate = new Date(
 
 
 /* =========================================
-   FORMAT TANGGAL UNTUK DATA
+   FORMAT TANGGAL
 ========================================= */
 
 function formatDateKey(date) {
@@ -119,22 +62,98 @@ function formatDateIndonesia(date) {
         "Desember"
     ];
 
-    const dayName =
-        days[date.getDay()];
+    return {
+        dayName: days[date.getDay()],
 
-    const day =
-        date.getDate();
+        fullDate:
+            `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
+    };
+}
 
-    const month =
-        months[date.getMonth()];
+
+/* =========================================
+   BACA FILE INFORMASI SESUAI TANGGAL
+========================================= */
+
+async function loadMenuData(date) {
+
+    const day = String(
+        date.getDate()
+    ).padStart(2, "0");
+
+    const month = String(
+        date.getMonth() + 1
+    ).padStart(2, "0");
 
     const year =
         date.getFullYear();
 
-    return {
-        dayName: dayName,
-        fullDate: `${day} ${month} ${year}`
-    };
+    const filePath =
+        `informasi/${day} - ${month} - ${year}.txt`;
+
+
+    console.log(
+        "Mencari file:",
+        filePath
+    );
+
+
+    try {
+
+        const response =
+            await fetch(filePath);
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                `HTTP ${response.status}`
+            );
+        }
+
+
+        const text =
+            await response.text();
+
+
+        const data =
+            JSON.parse(text);
+
+
+        /*
+         * File TXT berisi:
+         *
+         * {
+         *     "2026-09-11": {
+         *         ...
+         *     }
+         * }
+         *
+         * Jadi kita ambil berdasarkan
+         * tanggal yang sedang dipilih.
+         */
+
+        const key =
+            formatDateKey(date);
+
+
+        return data[key] || null;
+
+
+    } catch (error) {
+
+        console.log(
+            "Data tidak ditemukan:",
+            filePath
+        );
+
+        console.log(
+            "Error:",
+            error
+        );
+
+        return null;
+    }
 }
 
 
@@ -142,41 +161,41 @@ function formatDateIndonesia(date) {
    TAMPILKAN MENU
 ========================================= */
 
-function showMenu(date) {
+async function showMenu(date) {
 
     /* -------------------------------------
        TANGGAL
     ------------------------------------- */
 
-    const key = formatDateKey(date);
-
     const formatted =
         formatDateIndonesia(date);
 
+
     document.getElementById(
         "dayName"
-    ).textContent = formatted.dayName;
+    ).textContent =
+        formatted.dayName;
+
 
     document.getElementById(
         "dateText"
-    ).textContent = formatted.fullDate;
+    ).textContent =
+        formatted.fullDate;
 
 
     /* -------------------------------------
-       DATA MENU
+       BACA DATA TXT
     ------------------------------------- */
 
-    const menu = menuData[key];
+    const menu =
+        await loadMenuData(date);
 
 
     /* -------------------------------------
-       NAMA FILE GAMBAR OTOMATIS
-
+       GAMBAR OTOMATIS SESUAI TANGGAL
+       
        Format:
        DD - MM - YYYY.jpeg
-
-       Contoh:
-       08 - 09 - 2026.jpeg
     ------------------------------------- */
 
     const day = String(
@@ -190,75 +209,62 @@ function showMenu(date) {
     const year =
         date.getFullYear();
 
+
     const imagePath =
         `images/${day} - ${month} - ${year}.jpeg`;
 
 
-    /* -------------------------------------
-       ELEMENT GAMBAR
-    ------------------------------------- */
-
     const image =
-        document.getElementById("menuImage");
+        document.getElementById(
+            "menuImage"
+        );
+
 
     const placeholder =
-        document.getElementById("imagePlaceholder");
+        document.getElementById(
+            "imagePlaceholder"
+        );
 
 
     /* -------------------------------------
-       CEK ELEMENT GAMBAR
+       LOAD GAMBAR
     ------------------------------------- */
 
-    if (image && placeholder) {
+    image.onload = function () {
 
-        /* ---------------------------------
-           JIKA GAMBAR BERHASIL DIMUAT
-        --------------------------------- */
+        image.style.display =
+            "block";
 
-        image.onload = function () {
+        placeholder.style.display =
+            "none";
 
-            image.style.display = "block";
-
-            placeholder.style.display = "none";
-
-            console.log(
-                "Gambar berhasil dimuat:",
-                imagePath
-            );
-        };
+    };
 
 
-        /* ---------------------------------
-           JIKA GAMBAR TIDAK DITEMUKAN
-        --------------------------------- */
+    image.onerror = function () {
 
-        image.onerror = function () {
+        image.style.display =
+            "none";
 
-            image.style.display = "none";
+        placeholder.style.display =
+            "flex";
 
-            placeholder.style.display = "flex";
-
-            console.log(
-                "Gambar tidak ditemukan:",
-                imagePath
-            );
-        };
+    };
 
 
-        /* ---------------------------------
-           MULAI LOAD GAMBAR
-        --------------------------------- */
+    image.style.display =
+        "block";
 
-        image.style.display = "block";
+    placeholder.style.display =
+        "none";
 
-        placeholder.style.display = "none";
 
-        image.src = imagePath;
-    }
+    image.src =
+        imagePath;
 
 
     /* -------------------------------------
-       JIKA DATA MENU TIDAK ADA
+       JIKA DATA TXT TIDAK ADA
     ------------------------------------- */
 
     if (!menu) {
@@ -268,30 +274,42 @@ function showMenu(date) {
         ).textContent =
             "Menu Belum Tersedia";
 
+
         document.getElementById(
             "rice"
-        ).textContent = "-";
+        ).textContent =
+            "-";
+
 
         document.getElementById(
             "mainDish"
-        ).textContent = "-";
+        ).textContent =
+            "-";
+
 
         document.getElementById(
             "vegetable"
-        ).textContent = "-";
+        ).textContent =
+            "-";
+
 
         document.getElementById(
             "fruit"
-        ).textContent = "-";
+        ).textContent =
+            "-";
+
 
         document.getElementById(
             "drink"
-        ).textContent = "-";
+        ).textContent =
+            "-";
+
 
         document.getElementById(
             "updateText"
         ).textContent =
             "Menu untuk tanggal ini belum tersedia.";
+
 
         return;
     }
@@ -303,27 +321,38 @@ function showMenu(date) {
 
     document.getElementById(
         "menuTitle"
-    ).textContent = menu.title;
+    ).textContent =
+        menu.title;
+
 
     document.getElementById(
         "rice"
-    ).textContent = menu.rice;
+    ).textContent =
+        menu.rice;
+
 
     document.getElementById(
         "mainDish"
-    ).textContent = menu.mainDish;
+    ).textContent =
+        menu.mainDish;
+
 
     document.getElementById(
         "vegetable"
-    ).textContent = menu.vegetable;
+    ).textContent =
+        menu.vegetable;
+
 
     document.getElementById(
         "fruit"
-    ).textContent = menu.fruit;
+    ).textContent =
+        menu.fruit;
+
 
     document.getElementById(
         "drink"
-    ).textContent = menu.drink;
+    ).textContent =
+        menu.drink;
 
 
     /* -------------------------------------
@@ -342,7 +371,10 @@ function showMenu(date) {
 ========================================= */
 
 const prevDayButton =
-    document.getElementById("prevDay");
+    document.getElementById(
+        "prevDay"
+    );
+
 
 if (prevDayButton) {
 
@@ -354,14 +386,14 @@ if (prevDayButton) {
                 currentDate.getDate() - 1
             );
 
-            console.log(
-                "Tanggal sebelumnya:",
-                formatDateKey(currentDate)
+
+            showMenu(
+                currentDate
             );
 
-            showMenu(currentDate);
         }
     );
+
 }
 
 
@@ -370,7 +402,10 @@ if (prevDayButton) {
 ========================================= */
 
 const nextDayButton =
-    document.getElementById("nextDay");
+    document.getElementById(
+        "nextDay"
+    );
+
 
 if (nextDayButton) {
 
@@ -382,14 +417,14 @@ if (nextDayButton) {
                 currentDate.getDate() + 1
             );
 
-            console.log(
-                "Tanggal berikutnya:",
-                formatDateKey(currentDate)
+
+            showMenu(
+                currentDate
             );
 
-            showMenu(currentDate);
         }
     );
+
 }
 
 
@@ -398,12 +433,16 @@ if (nextDayButton) {
 ========================================= */
 
 const yearElement =
-    document.getElementById("year");
+    document.getElementById(
+        "year"
+    );
+
 
 if (yearElement) {
 
     yearElement.textContent =
         new Date().getFullYear();
+
 }
 
 
@@ -411,4 +450,6 @@ if (yearElement) {
    LOAD AWAL
 ========================================= */
 
-showMenu(currentDate);
+showMenu(
+    currentDate
+);
