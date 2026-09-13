@@ -507,3 +507,84 @@ footer {
     }
 
 }
+
+/* ================================
+   INFORMASI GIZI
+================================ */
+
+.nutrition-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    margin-bottom: 16px;
+}
+
+.nutrition-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 4px;
+}
+
+.nutrition-title h2 {
+    margin-top: 4px;
+    font-size: 19px;
+}
+
+.nutrition-icon {
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-light);
+    border-radius: 13px;
+    font-size: 22px;
+}
+
+.nutrition-table {
+    display: flex;
+    flex-direction: column;
+}
+
+.nutrition-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    align-items: center;
+    min-height: 48px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+}
+
+.nutrition-row:last-child {
+    border-bottom: none;
+}
+
+.nutrition-row > div {
+    text-align: center;
+}
+
+.nutrition-row .nutrition-name {
+    text-align: left;
+    font-weight: 600;
+}
+
+.nutrition-header {
+    min-height: 42px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.nutrition-header .nutrition-name {
+    color: transparent;
+}
+
+.nutrition-row:not(.nutrition-header) > div:not(.nutrition-name) {
+    font-weight: 600;
+    color: var(--text);
+}
