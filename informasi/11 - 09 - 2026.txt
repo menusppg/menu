@@ -1,0 +1,11 @@
+{
+    "2026-09-11": {
+        "title": "Menu Makan Bergizi",
+        "rice": "Jagung",
+        "mainDish": "Telur Rebus",
+        "vegetable": "Kacang Merah",
+        "fruit": "Jeruk",
+        "drink": "Fla Susu",
+        "updated": "11 September 2026, 05:30"
+    }
+}
