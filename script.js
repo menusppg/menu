@@ -1,3 +1,4 @@
+```javascript
 /* =========================================
    DATA MENU
 =========================================
@@ -11,7 +12,7 @@
 
 const menuData = {
 
-    "2026-09-14": {
+    "2026-09-08": {
         title: "Menu Makan Bergizi",
 
         rice: "Nasi Putih",
@@ -24,7 +25,22 @@ const menuData = {
 
         drink: "Susu",
 
-        image: "images/menu.jpg",
+        updated: "8 September 2026, 06:30"
+    },
+
+
+    "2026-09-14": {
+        title: "Menu Makan Bergizi",
+
+        rice: "Nasi Putih",
+
+        mainDish: "Ayam Goreng",
+
+        vegetable: "Tumis Kangkung",
+
+        fruit: "Pisang",
+
+        drink: "Susu",
 
         updated: "14 September 2026, 06:30"
     },
@@ -43,8 +59,6 @@ const menuData = {
 
         drink: "Susu",
 
-        image: "images/menu.jpg",
-
         updated: "15 September 2026, 06:30"
     },
 
@@ -62,8 +76,6 @@ const menuData = {
 
         drink: "Susu",
 
-        image: "images/menu.jpg",
-
         updated: "16 September 2026, 06:30"
     }
 
@@ -78,7 +90,7 @@ let currentDate = new Date();
 
 
 /* =========================================
-   FORMAT TANGGAL
+   FORMAT TANGGAL UNTUK DATA
 ========================================= */
 
 function formatDateKey(date) {
@@ -96,6 +108,10 @@ function formatDateKey(date) {
     return `${year}-${month}-${day}`;
 }
 
+
+/* =========================================
+   FORMAT TANGGAL INDONESIA
+========================================= */
 
 function formatDateIndonesia(date) {
 
@@ -148,58 +164,192 @@ function formatDateIndonesia(date) {
 ========================================= */
 
 function showMenu(date) {
-    const key = formatDateKey(date);
-    const formatted = formatDateIndonesia(date);
 
-    document.getElementById("dayName").textContent = formatted.dayName;
-    document.getElementById("dateText").textContent = formatted.fullDate;
+    /* -------------------------------------
+       TANGGAL
+    ------------------------------------- */
+
+    const key = formatDateKey(date);
+
+    const formatted =
+        formatDateIndonesia(date);
+
+    document.getElementById(
+        "dayName"
+    ).textContent = formatted.dayName;
+
+    document.getElementById(
+        "dateText"
+    ).textContent = formatted.fullDate;
+
+
+    /* -------------------------------------
+       DATA MENU
+    ------------------------------------- */
 
     const menu = menuData[key];
 
-    // Nama file otomatis mengikuti tanggal
-    const day = String(date.getDate()).padStart(2, "0");
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const year = date.getFullYear();
 
-    const imagePath = `images/${day} - ${month} - ${year}.jpeg`;
+    /* -------------------------------------
+       NAMA FILE GAMBAR OTOMATIS
+       
+       Format:
+       DD - MM - YYYY.jpeg
 
-    const image = document.getElementById("menuImage");
-    const placeholder = document.getElementById("imagePlaceholder");
+       Contoh:
+       08 - 09 - 2026.jpeg
+    ------------------------------------- */
+
+    const day = String(
+        date.getDate()
+    ).padStart(2, "0");
+
+    const month = String(
+        date.getMonth() + 1
+    ).padStart(2, "0");
+
+    const year =
+        date.getFullYear();
+
+    const imagePath =
+        `images/${day} - ${month} - ${year}.jpeg`;
+
+
+    /* -------------------------------------
+       ELEMENT GAMBAR
+    ------------------------------------- */
+
+    const image =
+        document.getElementById("menuImage");
+
+    const placeholder =
+        document.getElementById("imagePlaceholder");
+
+
+    /* -------------------------------------
+       JIKA GAMBAR BERHASIL DIMUAT
+    ------------------------------------- */
+
+    image.onload = function () {
+
+        image.style.display = "block";
+
+        placeholder.style.display = "none";
+
+        console.log(
+            "Gambar berhasil dimuat:",
+            imagePath
+        );
+    };
+
+
+    /* -------------------------------------
+       JIKA GAMBAR TIDAK DITEMUKAN
+    ------------------------------------- */
+
+    image.onerror = function () {
+
+        image.style.display = "none";
+
+        placeholder.style.display = "flex";
+
+        console.log(
+            "Gambar tidak ditemukan:",
+            imagePath
+        );
+    };
+
+
+    /* -------------------------------------
+       MULAI LOAD GAMBAR
+    ------------------------------------- */
 
     image.style.display = "block";
+
     placeholder.style.display = "none";
 
     image.src = imagePath;
 
-    // Kalau gambar tidak ditemukan
-    image.onerror = function () {
-        image.style.display = "none";
-        placeholder.style.display = "flex";
-    };
+
+    /* -------------------------------------
+       JIKA DATA MENU TIDAK ADA
+    ------------------------------------- */
 
     if (!menu) {
-        document.getElementById("menuTitle").textContent = "Menu Belum Tersedia";
-        document.getElementById("rice").textContent = "-";
-        document.getElementById("mainDish").textContent = "-";
-        document.getElementById("vegetable").textContent = "-";
-        document.getElementById("fruit").textContent = "-";
-        document.getElementById("drink").textContent = "-";
-        document.getElementById("updateText").textContent =
+
+        document.getElementById(
+            "menuTitle"
+        ).textContent =
+            "Menu Belum Tersedia";
+
+        document.getElementById(
+            "rice"
+        ).textContent = "-";
+
+        document.getElementById(
+            "mainDish"
+        ).textContent = "-";
+
+        document.getElementById(
+            "vegetable"
+        ).textContent = "-";
+
+        document.getElementById(
+            "fruit"
+        ).textContent = "-";
+
+        document.getElementById(
+            "drink"
+        ).textContent = "-";
+
+        document.getElementById(
+            "updateText"
+        ).textContent =
             "Menu untuk tanggal ini belum tersedia.";
 
         return;
     }
 
-    document.getElementById("menuTitle").textContent = menu.title;
-    document.getElementById("rice").textContent = menu.rice;
-    document.getElementById("mainDish").textContent = menu.mainDish;
-    document.getElementById("vegetable").textContent = menu.vegetable;
-    document.getElementById("fruit").textContent = menu.fruit;
-    document.getElementById("drink").textContent = menu.drink;
 
-    document.getElementById("updateText").textContent =
+    /* -------------------------------------
+       TAMPILKAN DATA MENU
+    ------------------------------------- */
+
+    document.getElementById(
+        "menuTitle"
+    ).textContent = menu.title;
+
+    document.getElementById(
+        "rice"
+    ).textContent = menu.rice;
+
+    document.getElementById(
+        "mainDish"
+    ).textContent = menu.mainDish;
+
+    document.getElementById(
+        "vegetable"
+    ).textContent = menu.vegetable;
+
+    document.getElementById(
+        "fruit"
+    ).textContent = menu.fruit;
+
+    document.getElementById(
+        "drink"
+    ).textContent = menu.drink;
+
+
+    /* -------------------------------------
+       WAKTU UPDATE
+    ------------------------------------- */
+
+    document.getElementById(
+        "updateText"
+    ).textContent =
         `Terakhir diperbarui: ${menu.updated}`;
 }
+
 
 /* =========================================
    TOMBOL HARI SEBELUMNYA
@@ -216,7 +366,6 @@ document.getElementById(
         );
 
         showMenu(currentDate);
-
     }
 );
 
@@ -236,7 +385,6 @@ document.getElementById(
         );
 
         showMenu(currentDate);
-
     }
 );
 
@@ -256,3 +404,4 @@ document.getElementById(
 ========================================= */
 
 showMenu(currentDate);
+```
