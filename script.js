@@ -193,7 +193,7 @@ async function showMenu(date) {
 
     /* -------------------------------------
        GAMBAR OTOMATIS SESUAI TANGGAL
-       
+
        Format:
        DD - MM - YYYY.jpeg
     ------------------------------------- */
@@ -269,6 +269,8 @@ async function showMenu(date) {
 
     if (!menu) {
 
+        /* MENU */
+
         document.getElementById(
             "menuTitle"
         ).textContent =
@@ -304,6 +306,65 @@ async function showMenu(date) {
         ).textContent =
             "-";
 
+
+        /* GIZI */
+
+        document.getElementById(
+            "energySmall"
+        ).textContent =
+            "-";
+
+        document.getElementById(
+            "energyLarge"
+        ).textContent =
+            "-";
+
+
+        document.getElementById(
+            "proteinSmall"
+        ).textContent =
+            "-";
+
+        document.getElementById(
+            "proteinLarge"
+        ).textContent =
+            "-";
+
+
+        document.getElementById(
+            "fatSmall"
+        ).textContent =
+            "-";
+
+        document.getElementById(
+            "fatLarge"
+        ).textContent =
+            "-";
+
+
+        document.getElementById(
+            "carbohydrateSmall"
+        ).textContent =
+            "-";
+
+        document.getElementById(
+            "carbohydrateLarge"
+        ).textContent =
+            "-";
+
+
+        document.getElementById(
+            "fiberSmall"
+        ).textContent =
+            "-";
+
+        document.getElementById(
+            "fiberLarge"
+        ).textContent =
+            "-";
+
+
+        /* STATUS */
 
         document.getElementById(
             "updateText"
@@ -353,6 +414,70 @@ async function showMenu(date) {
         "drink"
     ).textContent =
         menu.drink;
+
+
+    /* -------------------------------------
+       DATA GIZI
+    ------------------------------------- */
+
+    document.getElementById(
+        "energySmall"
+    ).textContent =
+        menu.nutrition?.energy?.small || "-";
+
+
+    document.getElementById(
+        "energyLarge"
+    ).textContent =
+        menu.nutrition?.energy?.large || "-";
+
+
+    document.getElementById(
+        "proteinSmall"
+    ).textContent =
+        menu.nutrition?.protein?.small || "-";
+
+
+    document.getElementById(
+        "proteinLarge"
+    ).textContent =
+        menu.nutrition?.protein?.large || "-";
+
+
+    document.getElementById(
+        "fatSmall"
+    ).textContent =
+        menu.nutrition?.fat?.small || "-";
+
+
+    document.getElementById(
+        "fatLarge"
+    ).textContent =
+        menu.nutrition?.fat?.large || "-";
+
+
+    document.getElementById(
+        "carbohydrateSmall"
+    ).textContent =
+        menu.nutrition?.carbohydrate?.small || "-";
+
+
+    document.getElementById(
+        "carbohydrateLarge"
+    ).textContent =
+        menu.nutrition?.carbohydrate?.large || "-";
+
+
+    document.getElementById(
+        "fiberSmall"
+    ).textContent =
+        menu.nutrition?.fiber?.small || "-";
+
+
+    document.getElementById(
+        "fiberLarge"
+    ).textContent =
+        menu.nutrition?.fiber?.large || "-";
 
 
     /* -------------------------------------
