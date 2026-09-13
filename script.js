@@ -148,143 +148,58 @@ function formatDateIndonesia(date) {
 ========================================= */
 
 function showMenu(date) {
+    const key = formatDateKey(date);
+    const formatted = formatDateIndonesia(date);
 
-    const key =
-        formatDateKey(date);
+    document.getElementById("dayName").textContent = formatted.dayName;
+    document.getElementById("dateText").textContent = formatted.fullDate;
 
-    const formatted =
-        formatDateIndonesia(date);
+    const menu = menuData[key];
 
+    // Nama file otomatis mengikuti tanggal
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
 
-    /* tanggal */
+    const imagePath = `images/${day} - ${month} - ${year}.jpeg`;
 
-    document.getElementById(
-        "dayName"
-    ).textContent =
-        formatted.dayName;
+    const image = document.getElementById("menuImage");
+    const placeholder = document.getElementById("imagePlaceholder");
 
+    image.style.display = "block";
+    placeholder.style.display = "none";
 
-    document.getElementById(
-        "dateText"
-    ).textContent =
-        formatted.fullDate;
+    image.src = imagePath;
 
-
-    /* cari data */
-
-    const menu =
-        menuData[key];
-
-
-    /* kalau tidak ada menu */
+    // Kalau gambar tidak ditemukan
+    image.onerror = function () {
+        image.style.display = "none";
+        placeholder.style.display = "flex";
+    };
 
     if (!menu) {
-
-        document.getElementById(
-            "menuTitle"
-        ).textContent =
-            "Menu Belum Tersedia";
-
-        document.getElementById(
-            "rice"
-        ).textContent =
-            "-";
-
-        document.getElementById(
-            "mainDish"
-        ).textContent =
-            "-";
-
-        document.getElementById(
-            "vegetable"
-        ).textContent =
-            "-";
-
-        document.getElementById(
-            "fruit"
-        ).textContent =
-            "-";
-
-        document.getElementById(
-            "drink"
-        ).textContent =
-            "-";
-
-        document.getElementById(
-            "updateText"
-        ).textContent =
+        document.getElementById("menuTitle").textContent = "Menu Belum Tersedia";
+        document.getElementById("rice").textContent = "-";
+        document.getElementById("mainDish").textContent = "-";
+        document.getElementById("vegetable").textContent = "-";
+        document.getElementById("fruit").textContent = "-";
+        document.getElementById("drink").textContent = "-";
+        document.getElementById("updateText").textContent =
             "Menu untuk tanggal ini belum tersedia.";
 
         return;
     }
 
+    document.getElementById("menuTitle").textContent = menu.title;
+    document.getElementById("rice").textContent = menu.rice;
+    document.getElementById("mainDish").textContent = menu.mainDish;
+    document.getElementById("vegetable").textContent = menu.vegetable;
+    document.getElementById("fruit").textContent = menu.fruit;
+    document.getElementById("drink").textContent = menu.drink;
 
-    /* isi menu */
-
-    document.getElementById(
-        "menuTitle"
-    ).textContent =
-        menu.title;
-
-
-    document.getElementById(
-        "rice"
-    ).textContent =
-        menu.rice;
-
-
-    document.getElementById(
-        "mainDish"
-    ).textContent =
-        menu.mainDish;
-
-
-    document.getElementById(
-        "vegetable"
-    ).textContent =
-        menu.vegetable;
-
-
-    document.getElementById(
-        "fruit"
-    ).textContent =
-        menu.fruit;
-
-
-    document.getElementById(
-        "drink"
-    ).textContent =
-        menu.drink;
-
-
-    /* foto */
-
-    const image =
-        document.getElementById(
-            "menuImage"
-        );
-
-    const placeholder =
-        document.getElementById(
-            "imagePlaceholder"
-        );
-
-    image.style.display = "block";
-
-    placeholder.style.display = "none";
-
-    image.src =
-        menu.image;
-
-
-    /* waktu update */
-
-    document.getElementById(
-        "updateText"
-    ).textContent =
+    document.getElementById("updateText").textContent =
         `Terakhir diperbarui: ${menu.updated}`;
 }
-
 
 /* =========================================
    TOMBOL HARI SEBELUMNYA
