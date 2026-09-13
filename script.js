@@ -1,4 +1,3 @@
-```javascript
 /* =========================================
    DATA MENU
 =========================================
@@ -14,68 +13,41 @@ const menuData = {
 
     "2026-09-08": {
         title: "Menu Makan Bergizi",
-
         rice: "Nasi Putih",
-
         mainDish: "Ayam Goreng",
-
         vegetable: "Tumis Kangkung",
-
         fruit: "Pisang",
-
         drink: "Susu",
-
         updated: "8 September 2026, 06:30"
     },
 
-
     "2026-09-14": {
         title: "Menu Makan Bergizi",
-
         rice: "Nasi Putih",
-
         mainDish: "Ayam Goreng",
-
         vegetable: "Tumis Kangkung",
-
         fruit: "Pisang",
-
         drink: "Susu",
-
         updated: "14 September 2026, 06:30"
     },
 
-
     "2026-09-15": {
         title: "Menu Makan Bergizi",
-
         rice: "Nasi Putih",
-
         mainDish: "Telur Balado",
-
         vegetable: "Sayur Sop",
-
         fruit: "Apel",
-
         drink: "Susu",
-
         updated: "15 September 2026, 06:30"
     },
 
-
     "2026-09-16": {
         title: "Menu Makan Bergizi",
-
         rice: "Nasi Putih",
-
         mainDish: "Ikan Goreng",
-
         vegetable: "Capcay",
-
         fruit: "Jeruk",
-
         drink: "Susu",
-
         updated: "16 September 2026, 06:30"
     }
 
@@ -86,7 +58,14 @@ const menuData = {
    VARIABEL
 ========================================= */
 
-let currentDate = new Date();
+// Gunakan tanggal lokal
+const now = new Date();
+
+let currentDate = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate()
+);
 
 
 /* =========================================
@@ -153,7 +132,7 @@ function formatDateIndonesia(date) {
         date.getFullYear();
 
     return {
-        dayName,
+        dayName: dayName,
         fullDate: `${day} ${month} ${year}`
     };
 }
@@ -192,7 +171,7 @@ function showMenu(date) {
 
     /* -------------------------------------
        NAMA FILE GAMBAR OTOMATIS
-       
+
        Format:
        DD - MM - YYYY.jpeg
 
@@ -227,48 +206,55 @@ function showMenu(date) {
 
 
     /* -------------------------------------
-       JIKA GAMBAR BERHASIL DIMUAT
+       CEK ELEMENT GAMBAR
     ------------------------------------- */
 
-    image.onload = function () {
+    if (image && placeholder) {
+
+        /* ---------------------------------
+           JIKA GAMBAR BERHASIL DIMUAT
+        --------------------------------- */
+
+        image.onload = function () {
+
+            image.style.display = "block";
+
+            placeholder.style.display = "none";
+
+            console.log(
+                "Gambar berhasil dimuat:",
+                imagePath
+            );
+        };
+
+
+        /* ---------------------------------
+           JIKA GAMBAR TIDAK DITEMUKAN
+        --------------------------------- */
+
+        image.onerror = function () {
+
+            image.style.display = "none";
+
+            placeholder.style.display = "flex";
+
+            console.log(
+                "Gambar tidak ditemukan:",
+                imagePath
+            );
+        };
+
+
+        /* ---------------------------------
+           MULAI LOAD GAMBAR
+        --------------------------------- */
 
         image.style.display = "block";
 
         placeholder.style.display = "none";
 
-        console.log(
-            "Gambar berhasil dimuat:",
-            imagePath
-        );
-    };
-
-
-    /* -------------------------------------
-       JIKA GAMBAR TIDAK DITEMUKAN
-    ------------------------------------- */
-
-    image.onerror = function () {
-
-        image.style.display = "none";
-
-        placeholder.style.display = "flex";
-
-        console.log(
-            "Gambar tidak ditemukan:",
-            imagePath
-        );
-    };
-
-
-    /* -------------------------------------
-       MULAI LOAD GAMBAR
-    ------------------------------------- */
-
-    image.style.display = "block";
-
-    placeholder.style.display = "none";
-
-    image.src = imagePath;
+        image.src = imagePath;
+    }
 
 
     /* -------------------------------------
@@ -355,46 +341,70 @@ function showMenu(date) {
    TOMBOL HARI SEBELUMNYA
 ========================================= */
 
-const prevDayButton = document.getElementById("prevDay");
+const prevDayButton =
+    document.getElementById("prevDay");
 
-prevDayButton.addEventListener("click", function () {
+if (prevDayButton) {
 
-    currentDate = new Date(currentDate);
+    prevDayButton.addEventListener(
+        "click",
+        function () {
 
-    currentDate.setDate(currentDate.getDate() - 1);
+            currentDate.setDate(
+                currentDate.getDate() - 1
+            );
 
-    console.log("Tanggal sebelumnya:", currentDate);
+            console.log(
+                "Tanggal sebelumnya:",
+                formatDateKey(currentDate)
+            );
 
-    showMenu(currentDate);
-});
+            showMenu(currentDate);
+        }
+    );
+}
 
 
 /* =========================================
    TOMBOL HARI BERIKUTNYA
 ========================================= */
 
-const nextDayButton = document.getElementById("nextDay");
+const nextDayButton =
+    document.getElementById("nextDay");
 
-nextDayButton.addEventListener("click", function () {
+if (nextDayButton) {
 
-    currentDate = new Date(currentDate);
+    nextDayButton.addEventListener(
+        "click",
+        function () {
 
-    currentDate.setDate(currentDate.getDate() + 1);
+            currentDate.setDate(
+                currentDate.getDate() + 1
+            );
 
-    console.log("Tanggal berikutnya:", currentDate);
+            console.log(
+                "Tanggal berikutnya:",
+                formatDateKey(currentDate)
+            );
 
-    showMenu(currentDate);
-});
+            showMenu(currentDate);
+        }
+    );
+}
 
 
 /* =========================================
    TAHUN FOOTER
 ========================================= */
 
-document.getElementById(
-    "year"
-).textContent =
-    new Date().getFullYear();
+const yearElement =
+    document.getElementById("year");
+
+if (yearElement) {
+
+    yearElement.textContent =
+        new Date().getFullYear();
+}
 
 
 /* =========================================
@@ -402,4 +412,3 @@ document.getElementById(
 ========================================= */
 
 showMenu(currentDate);
-```
