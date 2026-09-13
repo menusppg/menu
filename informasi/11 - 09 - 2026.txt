@@ -6,6 +6,28 @@
         "vegetable": "Kacang Merah",
         "fruit": "Jeruk",
         "drink": "Fla Susu",
+        "nutrition": {
+            "energy": {
+                "small": "450",
+                "large": "600"
+            },
+            "protein": {
+                "small": "15",
+                "large": "20"
+            },
+            "fat": {
+                "small": "12",
+                "large": "18"
+            },
+            "carbohydrate": {
+                "small": "65",
+                "large": "90"
+            },
+            "fiber": {
+                "small": "5",
+                "large": "7"
+            }
+        },
         "updated": "11 September 2026, 05:30"
     }
 }
