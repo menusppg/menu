@@ -355,38 +355,36 @@ function showMenu(date) {
    TOMBOL HARI SEBELUMNYA
 ========================================= */
 
-document.getElementById(
-    "prevDay"
-).addEventListener(
-    "click",
-    function () {
+const prevDayButton = document.getElementById("prevDay");
 
-        currentDate.setDate(
-            currentDate.getDate() - 1
-        );
+prevDayButton.addEventListener("click", function () {
 
-        showMenu(currentDate);
-    }
-);
+    currentDate = new Date(currentDate);
+
+    currentDate.setDate(currentDate.getDate() - 1);
+
+    console.log("Tanggal sebelumnya:", currentDate);
+
+    showMenu(currentDate);
+});
 
 
 /* =========================================
    TOMBOL HARI BERIKUTNYA
 ========================================= */
 
-document.getElementById(
-    "nextDay"
-).addEventListener(
-    "click",
-    function () {
+const nextDayButton = document.getElementById("nextDay");
 
-        currentDate.setDate(
-            currentDate.getDate() + 1
-        );
+nextDayButton.addEventListener("click", function () {
 
-        showMenu(currentDate);
-    }
-);
+    currentDate = new Date(currentDate);
+
+    currentDate.setDate(currentDate.getDate() + 1);
+
+    console.log("Tanggal berikutnya:", currentDate);
+
+    showMenu(currentDate);
+});
 
 
 /* =========================================
