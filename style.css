@@ -230,7 +230,7 @@ body {
 
     margin-bottom: 16px;
 
-    aspect-ratio: 9 / 16;
+    aspect-ratio: 16 / 9;
 
     box-shadow: var(--shadow);
 }
