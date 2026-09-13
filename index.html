@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Daftar Menu MBG setiap hari yang selalu diperbarui.">
+
+    <title>Menu MBG Hari Ini</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <div class="logo">
+                <span class="logo-icon">🍱</span>
+            </div>
+
+            <div>
+                <h1>Menu MBG</h1>
+                <p>Daftar Menu Makan Bergizi</p>
+            </div>
+
+        </header>
+
+
+        <!-- TANGGAL -->
+        <section class="date-card">
+
+            <button id="prevDay" class="date-button" aria-label="Hari sebelumnya">
+                ‹
+            </button>
+
+            <div class="date-info">
+                <span id="dayName">Senin</span>
+                <strong id="dateText">14 September 2026</strong>
+            </div>
+
+            <button id="nextDay" class="date-button" aria-label="Hari berikutnya">
+                ›
+            </button>
+
+        </section>
+
+
+        <!-- STATUS -->
+        <div class="update-info">
+            <span class="status-dot"></span>
+            <span id="updateText">Terakhir diperbarui hari ini</span>
+        </div>
+
+
+        <!-- FOTO MENU -->
+        <section class="menu-photo">
+
+            <img
+                id="menuImage"
+                src="images/menu.jpg"
+                alt="Foto menu MBG"
+                onerror="this.style.display='none'; document.getElementById('imagePlaceholder').style.display='flex';"
+            >
+
+            <div id="imagePlaceholder" class="image-placeholder">
+                <span>🍱</span>
+                <p>Foto menu hari ini</p>
+            </div>
+
+        </section>
+
+
+        <!-- MENU -->
+        <section class="menu-card">
+
+            <div class="menu-title">
+                <div>
+                    <span class="small-label">MENU HARI INI</span>
+                    <h2 id="menuTitle">Menu Makan Bergizi</h2>
+                </div>
+
+                <span class="menu-icon">🍽️</span>
+            </div>
+
+
+            <div class="menu-list">
+
+                <!-- NASI -->
+                <div class="menu-item">
+                    <div class="item-icon">🍚</div>
+
+                    <div class="item-content">
+                        <span class="item-label">Karbohidrat</span>
+                        <strong id="rice">Nasi Putih</strong>
+                    </div>
+                </div>
+
+
+                <!-- LAUK -->
+                <div class="menu-item">
+                    <div class="item-icon">🍗</div>
+
+                    <div class="item-content">
+                        <span class="item-label">Protein / Lauk</span>
+                        <strong id="mainDish">Ayam Goreng</strong>
+                    </div>
+                </div>
+
+
+                <!-- SAYUR -->
+                <div class="menu-item">
+                    <div class="item-icon">🥬</div>
+
+                    <div class="item-content">
+                        <span class="item-label">Sayuran</span>
+                        <strong id="vegetable">Tumis Sayur</strong>
+                    </div>
+                </div>
+
+
+                <!-- BUAH -->
+                <div class="menu-item">
+                    <div class="item-icon">🍌</div>
+
+                    <div class="item-content">
+                        <span class="item-label">Buah</span>
+                        <strong id="fruit">Pisang</strong>
+                    </div>
+                </div>
+
+
+                <!-- MINUMAN -->
+                <div class="menu-item">
+                    <div class="item-icon">🥛</div>
+
+                    <div class="item-content">
+                        <span class="item-label">Pelengkap</span>
+                        <strong id="drink">Susu</strong>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INFORMASI -->
+        <section class="info-card">
+
+            <div class="info-icon">
+                ℹ️
+            </div>
+
+            <div>
+                <strong>Informasi</strong>
+
+                <p>
+                    Menu dapat berubah sesuai dengan ketersediaan
+                    bahan dan kondisi di lapangan.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+
+            <p>
+                © <span id="year"></span> Menu MBG
+            </p>
+
+            <p class="footer-small">
+                Informasi menu diperbarui secara berkala.
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
