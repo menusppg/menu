@@ -1,0 +1,509 @@
+/* =========================================
+   DASAR
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary: #16875c;
+    --primary-dark: #0f6846;
+    --primary-light: #e9f7f0;
+
+    --background: #f4f7f5;
+    --card: #ffffff;
+
+    --text: #1f2933;
+    --muted: #718096;
+
+    --border: #e5ebe7;
+
+    --shadow:
+        0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    background: var(--background);
+    color: var(--text);
+
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+    width: 100%;
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    padding:
+        24px
+        18px
+        40px;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 24px;
+}
+
+.logo {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary-light);
+
+    border-radius: 18px;
+
+    flex-shrink: 0;
+}
+
+.logo-icon {
+    font-size: 30px;
+}
+
+.header h1 {
+    font-size: 27px;
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    text-transform: capitalize;
+}
+
+.header p {
+    margin-top: 5px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   DATE CARD
+========================================= */
+
+.date-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 10px;
+
+    box-shadow: var(--shadow);
+
+    margin-bottom: 12px;
+}
+
+.date-button {
+    width: 44px;
+    height: 44px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background: var(--primary-light);
+
+    color: var(--primary-dark);
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease;
+}
+
+.date-button:hover {
+    background: #d9f0e4;
+}
+
+.date-button:active {
+    transform: scale(0.92);
+}
+
+.date-info {
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.date-info span {
+    color: var(--primary);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+.date-info strong {
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   UPDATE INFO
+========================================= */
+
+.update-info {
+    display: flex;
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-bottom: 18px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    background: #2dbb75;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================
+   FOTO
+========================================= */
+
+.menu-photo {
+    width: 100%;
+
+    background: #e9eeeb;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    margin-bottom: 16px;
+
+    aspect-ratio: 16 / 9;
+
+    box-shadow: var(--shadow);
+}
+
+.menu-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    color: var(--muted);
+}
+
+.image-placeholder span {
+    font-size: 48px;
+}
+
+.image-placeholder p {
+    font-size: 14px;
+}
+
+
+/* =========================================
+   MENU CARD
+========================================= */
+
+.menu-card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 22px;
+
+    padding: 20px;
+
+    box-shadow: var(--shadow);
+
+    margin-bottom: 16px;
+}
+
+.menu-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid var(--border);
+
+    margin-bottom: 4px;
+}
+
+.small-label {
+    color: var(--primary);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.menu-title h2 {
+    margin-top: 4px;
+
+    font-size: 19px;
+}
+
+.menu-icon {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary-light);
+
+    border-radius: 13px;
+
+    font-size: 22px;
+}
+
+
+/* =========================================
+   ITEM MENU
+========================================= */
+
+.menu-list {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 15px 4px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.item-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f5f7f6;
+
+    border-radius: 13px;
+
+    font-size: 23px;
+
+    flex-shrink: 0;
+}
+
+.item-content {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+
+    min-width: 0;
+}
+
+.item-label {
+    color: var(--muted);
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+.item-content strong {
+    font-size: 15px;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================
+   INFO CARD
+========================================= */
+
+.info-card {
+    display: flex;
+
+    gap: 12px;
+
+    padding: 16px;
+
+    background: var(--primary-light);
+
+    border-radius: 17px;
+
+    margin-bottom: 25px;
+}
+
+.info-icon {
+    font-size: 20px;
+
+    flex-shrink: 0;
+}
+
+.info-card strong {
+    font-size: 13px;
+
+    color: var(--primary-dark);
+}
+
+.info-card p {
+    margin-top: 4px;
+
+    color: #557065;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+.footer-small {
+    margin-top: 4px;
+
+    font-size: 10px;
+
+    opacity: 0.8;
+}
+
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media (min-width: 700px) {
+
+    body {
+        padding-top: 30px;
+    }
+
+    .container {
+        padding:
+            30px
+            20px
+            60px;
+    }
+
+    .header h1 {
+        font-size: 30px;
+    }
+
+}
+
+
+/* =========================================
+   ANIMASI
+========================================= */
+
+.menu-card,
+.menu-photo,
+.info-card,
+.date-card {
+    animation: fadeUp 0.4s ease both;
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
