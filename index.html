@@ -14,10 +14,9 @@
 <body>
 
     <main class="container">
-
+        
         <!-- HEADER -->
         <header class="header">
-
             <div class="logo">
                 <span class="logo-icon">🍱</span>
             </div>
@@ -26,13 +25,11 @@
                 <h1>Menu MBG</h1>
                 <p>Daftar Menu Makan Bergizi</p>
             </div>
-
         </header>
 
 
         <!-- TANGGAL -->
         <section class="date-card">
-        
             <button
                 type="button"
                 id="prevDay"
@@ -53,7 +50,6 @@
                 aria-label="Hari berikutnya">
                 ›
             </button>
-        
         </section>
 
 
@@ -66,7 +62,6 @@
 
         <!-- FOTO MENU -->
         <section class="menu-photo">
-
             <img
                 id="menuImage"
                 src="images/menu.jpg"
@@ -78,25 +73,20 @@
                 <span>🍱</span>
                 <p>Foto menu hari ini</p>
             </div>
-
         </section>
 
 
         <!-- MENU -->
         <section class="menu-card">
-
             <div class="menu-title">
                 <div>
                     <span class="small-label">MENU HARI INI</span>
                     <h2 id="menuTitle">Menu Makan Bergizi</h2>
                 </div>
-
                 <span class="menu-icon">🍽️</span>
             </div>
 
-
             <div class="menu-list">
-
                 <!-- NASI -->
                 <div class="menu-item">
                     <div class="item-icon">🍚</div>
@@ -106,7 +96,6 @@
                         <strong id="rice">...</strong>
                     </div>
                 </div>
-
 
                 <!-- LAUK -->
                 <div class="menu-item">
@@ -118,7 +107,6 @@
                     </div>
                 </div>
 
-
                 <!-- SAYUR -->
                 <div class="menu-item">
                     <div class="item-icon">🫘🥛</div>
@@ -128,8 +116,7 @@
                         <strong id="vegetable">...</strong>
                     </div>
                 </div>
-
-
+                
                 <!-- BUAH -->
                 <div class="menu-item">
                     <div class="item-icon">🥬</div>
@@ -140,7 +127,6 @@
                     </div>
                 </div>
 
-
                 <!-- MINUMAN -->
                 <div class="menu-item">
                     <div class="item-icon">🍉</div>
@@ -150,22 +136,84 @@
                         <strong id="drink">...</strong>
                     </div>
                 </div>
-
             </div>
-
         </section>
 
 
+        <!-- INFORMASI GIZI -->
+        <section class="nutrition-card">
+            <div class="nutrition-title">
+                <div>
+                    <span class="small-label">INFORMASI GIZI</span>
+                    <h2>Kandungan Gizi</h2>
+                </div>
+                <span class="nutrition-icon">🥗</span>
+            </div>
+            
+            <div class="nutrition-table">
+                <!-- HEADER -->
+                <div class="nutrition-row nutrition-header">
+                    <div class="nutrition-name"></div>
+                    <div>Porsi Kecil</div>
+                    <div>Porsi Besar</div>
+                </div>
+        
+                <!-- ENERGI -->
+                <div class="nutrition-row">
+                    <div class="nutrition-name">
+                        Energi (kkal)
+                    </div>
+                    <div id="energySmall">...</div>
+                    <div id="energyLarge">...</div>
+                </div>
+        
+                <!-- PROTEIN -->
+                <div class="nutrition-row">
+                    <div class="nutrition-name">
+                        Protein (g)
+                    </div>
+                    <div id="proteinSmall">...</div>
+                    <div id="proteinLarge">...</div>
+                </div>
+        
+                <!-- LEMAK -->
+                <div class="nutrition-row">
+                    <div class="nutrition-name">
+                        Lemak (g)
+                    </div>
+                    <div id="fatSmall">...</div>
+                    <div id="fatLarge">...</div>
+                </div>
+        
+                <!-- KARBOHIDRAT -->
+                <div class="nutrition-row">
+                    <div class="nutrition-name">
+                        Karbohidrat (g)
+                    </div>
+                    <div id="carbohydrateSmall">...</div>
+                    <div id="carbohydrateLarge">...</div>
+                </div>
+        
+                <!-- SERAT -->
+                <div class="nutrition-row">
+                    <div class="nutrition-name">
+                        Serat (g)
+                    </div>
+                    <div id="fiberSmall">...</div>
+                    <div id="fiberLarge">...</div>
+                </div>
+            </div>
+        </section>
+        
+
         <!-- INFORMASI -->
         <section class="info-card">
-
             <div class="info-icon">
                 ℹ️
             </div>
 
             <div>
                 <strong>Informasi</strong>
-
                 <p>
                     Disiapkan di dapur <strong>SPPG Bekasi Cibarusah Sindangmulya 05</strong>
                 </p>
@@ -173,27 +221,21 @@
                     Yayasan Pendidikan Islam Al-ansori
                 </p>
             </div>
-
         </section>
 
 
         <!-- FOOTER -->
         <footer>
-
             <p>
                 © <span id="year"></span> Badan Gizi Nasional
             </p>
-
             <p class="footer-small">
                 Informasi menu diperbarui secara berkala.
             </p>
-
         </footer>
-
+        
     </main>
 
-
     <script src="script.js"></script>
-
 </body>
 </html>
