@@ -4,8 +4,8 @@
         "rice": "Nasi",
         "mainDish": "Ayam Bumbu Sate",
         "vegetable": "Tahu Krispi",
-        "fruit": "Semangka",
-        "drink": "Tumis Labu Jagung",
+        "fruit": "Tumis Labu Jagung",
+        "drink": "Semangka",
         "nutrition": {
             "energy": {
                 "small": "466.76",
