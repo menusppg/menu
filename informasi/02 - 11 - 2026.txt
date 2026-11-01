@@ -1,0 +1,33 @@
+{
+    "2026-11-02": {
+        "title": "Menu Makan Bergizi",
+        "rice": "Nasi",
+        "mainDish": "Ayam Bumbu Sate",
+        "vegetable": "Tahu Krispi",
+        "fruit": "Semangka",
+        "drink": "Tumis Labu Jagung",
+        "nutrition": {
+            "energy": {
+                "small": "466.76",
+                "large": "825.56"
+            },
+            "protein": {
+                "small": "14.39",
+                "large": "21.43"
+            },
+            "fat": {
+                "small": "19.78",
+                "large": "31.18"
+            },
+            "carbohydrate": {
+                "small": "63.62",
+                "large": "120.97"
+            },
+            "fiber": {
+                "small": "4.06",
+                "large": "4.68"
+            }
+        },
+        "updated": "02 November 2026, 06:05"
+    }
+}
