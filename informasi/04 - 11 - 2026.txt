@@ -1,0 +1,33 @@
+{
+    "2026-11-02": {
+        "title": "Menu Makan Bergizi",
+        "rice": "Nasi",
+        "mainDish": "Telur Katsu",
+        "vegetable": "Tahu Balado",
+        "fruit": "Blanch Kacang Panjang Wortel",
+        "drink": "Apple Strawberry",
+        "nutrition": {
+            "energy": {
+                "small": "409.82",
+                "large": "702.42"
+            },
+            "protein": {
+                "small": "14.1",
+                "large": "20.11"
+            },
+            "fat": {
+                "small": "13.55",
+                "large": "20.72"
+            },
+            "carbohydrate": {
+                "small": "63.88",
+                "large": "114.53"
+            },
+            "fiber": {
+                "small": "4.23",
+                "large": "4.47"
+            }
+        },
+        "updated": "02 November 2026, 06:05"
+    }
+}
