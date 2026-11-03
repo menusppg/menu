@@ -28,6 +28,6 @@
                 "large": "4.47"
             }
         },
-        "updated": "02 November 2026, 06:05"
+        "updated": "04 November 2026, 06:30"
     }
 }
