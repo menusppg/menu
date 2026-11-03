@@ -1,5 +1,5 @@
 {
-    "2026-11-02": {
+    "2026-11-04": {
         "title": "Menu Makan Bergizi",
         "rice": "Nasi",
         "mainDish": "Telur Katsu",
