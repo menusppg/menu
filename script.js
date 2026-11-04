@@ -16,16 +16,9 @@ let currentDate = new Date(
 ========================================= */
 
 function formatDateKey(date) {
-
     const year = date.getFullYear();
-
-    const month = String(
-        date.getMonth() + 1
-    ).padStart(2, "0");
-
-    const day = String(
-        date.getDate()
-    ).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
 
     return `${year}-${month}-${day}`;
 }
@@ -77,80 +70,34 @@ function formatDateIndonesia(date) {
 
 async function loadMenuData(date) {
 
-    const day = String(
-        date.getDate()
-    ).padStart(2, "0");
-
-    const month = String(
-        date.getMonth() + 1
-    ).padStart(2, "0");
-
-    const year =
-        date.getFullYear();
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
 
     const filePath =
         `informasi/${day} - ${month} - ${year}.txt`;
 
-
-    console.log(
-        "Mencari file:",
-        filePath
-    );
-
+    console.log("Mencari file:", filePath);
 
     try {
 
-        const response =
-            await fetch(filePath);
-
+        const response = await fetch(filePath);
 
         if (!response.ok) {
-
-            throw new Error(
-                `HTTP ${response.status}`
-            );
+            throw new Error(`HTTP ${response.status}`);
         }
 
+        const text = await response.text();
+        const data = JSON.parse(text);
 
-        const text =
-            await response.text();
-
-
-        const data =
-            JSON.parse(text);
-
-
-        /*
-         * File TXT berisi:
-         *
-         * {
-         *     "2026-09-11": {
-         *         ...
-         *     }
-         * }
-         *
-         * Jadi kita ambil berdasarkan
-         * tanggal yang sedang dipilih.
-         */
-
-        const key =
-            formatDateKey(date);
-
+        const key = formatDateKey(date);
 
         return data[key] || null;
 
-
     } catch (error) {
 
-        console.log(
-            "Data tidak ditemukan:",
-            filePath
-        );
-
-        console.log(
-            "Error:",
-            error
-        );
+        console.log("Data tidak ditemukan:", filePath);
+        console.log("Error:", error);
 
         return null;
     }
@@ -167,19 +114,12 @@ async function showMenu(date) {
        TANGGAL
     ------------------------------------- */
 
-    const formatted =
-        formatDateIndonesia(date);
+    const formatted = formatDateIndonesia(date);
 
-
-    document.getElementById(
-        "dayName"
-    ).textContent =
+    document.getElementById("dayName").textContent =
         formatted.dayName;
 
-
-    document.getElementById(
-        "dateText"
-    ).textContent =
+    document.getElementById("dateText").textContent =
         formatted.fullDate;
 
 
@@ -187,8 +127,7 @@ async function showMenu(date) {
        BACA DATA TXT
     ------------------------------------- */
 
-    const menu =
-        await loadMenuData(date);
+    const menu = await loadMenuData(date);
 
 
     /* -------------------------------------
@@ -198,32 +137,17 @@ async function showMenu(date) {
        DD - MM - YYYY.jpeg
     ------------------------------------- */
 
-    const day = String(
-        date.getDate()
-    ).padStart(2, "0");
-
-    const month = String(
-        date.getMonth() + 1
-    ).padStart(2, "0");
-
-    const year =
-        date.getFullYear();
-
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
 
     const imagePath =
         `images/${day} - ${month} - ${year}.jpeg`;
 
-
-    const image =
-        document.getElementById(
-            "menuImage"
-        );
-
+    const image = document.getElementById("menuImage");
 
     const placeholder =
-        document.getElementById(
-            "imagePlaceholder"
-        );
+        document.getElementById("imagePlaceholder");
 
 
     /* -------------------------------------
@@ -232,35 +156,22 @@ async function showMenu(date) {
 
     image.onload = function () {
 
-        image.style.display =
-            "block";
-
-        placeholder.style.display =
-            "none";
+        image.style.display = "block";
+        placeholder.style.display = "none";
 
     };
-
 
     image.onerror = function () {
 
-        image.style.display =
-            "none";
-
-        placeholder.style.display =
-            "flex";
+        image.style.display = "none";
+        placeholder.style.display = "flex";
 
     };
 
+    image.style.display = "block";
+    placeholder.style.display = "none";
 
-    image.style.display =
-        "block";
-
-    placeholder.style.display =
-        "none";
-
-
-    image.src =
-        imagePath;
+    image.src = imagePath;
 
 
     /* -------------------------------------
@@ -271,106 +182,46 @@ async function showMenu(date) {
 
         /* MENU */
 
-        document.getElementById(
-            "menuTitle"
-        ).textContent =
+        document.getElementById("menuTitle").textContent =
             "Menu Belum Tersedia";
 
-
-        document.getElementById(
-            "rice"
-        ).textContent =
-            "-";
-
-
-        document.getElementById(
-            "mainDish"
-        ).textContent =
-            "-";
-
-
-        document.getElementById(
-            "vegetable"
-        ).textContent =
-            "-";
-
-
-        document.getElementById(
+        const menuFields = [
+            "carbohydrate",
+            "animalProtein",
+            "plantProtein",
+            "vegetable",
             "fruit"
-        ).textContent =
-            "-";
+        ];
 
-
-        document.getElementById(
-            "drink"
-        ).textContent =
-            "-";
+        menuFields.forEach(id => {
+            document.getElementById(id).textContent = "-";
+        });
 
 
         /* GIZI */
 
-        document.getElementById(
-            "energySmall"
-        ).textContent =
-            "-";
-
-        document.getElementById(
-            "energyLarge"
-        ).textContent =
-            "-";
-
-
-        document.getElementById(
-            "proteinSmall"
-        ).textContent =
-            "-";
-
-        document.getElementById(
-            "proteinLarge"
-        ).textContent =
-            "-";
-
-
-        document.getElementById(
-            "fatSmall"
-        ).textContent =
-            "-";
-
-        document.getElementById(
-            "fatLarge"
-        ).textContent =
-            "-";
-
-
-        document.getElementById(
-            "carbohydrateSmall"
-        ).textContent =
-            "-";
-
-        document.getElementById(
-            "carbohydrateLarge"
-        ).textContent =
-            "-";
-
-
-        document.getElementById(
-            "fiberSmall"
-        ).textContent =
-            "-";
-
-        document.getElementById(
+        const nutritionFields = [
+            "energySmall",
+            "energyLarge",
+            "proteinSmall",
+            "proteinLarge",
+            "fatSmall",
+            "fatLarge",
+            "carbohydrateSmall",
+            "carbohydrateLarge",
+            "fiberSmall",
             "fiberLarge"
-        ).textContent =
-            "-";
+        ];
+
+        nutritionFields.forEach(id => {
+            document.getElementById(id).textContent = "-";
+        });
 
 
         /* STATUS */
 
-        document.getElementById(
-            "updateText"
-        ).textContent =
+        document.getElementById("updateText").textContent =
             "Menu untuk tanggal ini belum tersedia.";
-
 
         return;
     }
@@ -380,103 +231,57 @@ async function showMenu(date) {
        TAMPILKAN DATA MENU
     ------------------------------------- */
 
-    document.getElementById(
-        "menuTitle"
-    ).textContent =
+    document.getElementById("menuTitle").textContent =
         menu.title;
 
+    document.getElementById("carbohydrate").textContent =
+        menu.carbohydrate || "-";
 
-    document.getElementById(
-        "rice"
-    ).textContent =
-        menu.rice;
+    document.getElementById("animalProtein").textContent =
+        menu.animalProtein || "-";
 
+    document.getElementById("plantProtein").textContent =
+        menu.plantProtein || "-";
 
-    document.getElementById(
-        "mainDish"
-    ).textContent =
-        menu.mainDish;
+    document.getElementById("vegetable").textContent =
+        menu.vegetable || "-";
 
-
-    document.getElementById(
-        "vegetable"
-    ).textContent =
-        menu.vegetable;
-
-
-    document.getElementById(
-        "fruit"
-    ).textContent =
-        menu.fruit;
-
-
-    document.getElementById(
-        "drink"
-    ).textContent =
-        menu.drink;
+    document.getElementById("fruit").textContent =
+        menu.fruit || "-";
 
 
     /* -------------------------------------
        DATA GIZI
     ------------------------------------- */
 
-    document.getElementById(
-        "energySmall"
-    ).textContent =
+    document.getElementById("energySmall").textContent =
         menu.nutrition?.energy?.small || "-";
 
-
-    document.getElementById(
-        "energyLarge"
-    ).textContent =
+    document.getElementById("energyLarge").textContent =
         menu.nutrition?.energy?.large || "-";
 
-
-    document.getElementById(
-        "proteinSmall"
-    ).textContent =
+    document.getElementById("proteinSmall").textContent =
         menu.nutrition?.protein?.small || "-";
 
-
-    document.getElementById(
-        "proteinLarge"
-    ).textContent =
+    document.getElementById("proteinLarge").textContent =
         menu.nutrition?.protein?.large || "-";
 
-
-    document.getElementById(
-        "fatSmall"
-    ).textContent =
+    document.getElementById("fatSmall").textContent =
         menu.nutrition?.fat?.small || "-";
 
-
-    document.getElementById(
-        "fatLarge"
-    ).textContent =
+    document.getElementById("fatLarge").textContent =
         menu.nutrition?.fat?.large || "-";
 
-
-    document.getElementById(
-        "carbohydrateSmall"
-    ).textContent =
+    document.getElementById("carbohydrateSmall").textContent =
         menu.nutrition?.carbohydrate?.small || "-";
 
-
-    document.getElementById(
-        "carbohydrateLarge"
-    ).textContent =
+    document.getElementById("carbohydrateLarge").textContent =
         menu.nutrition?.carbohydrate?.large || "-";
 
-
-    document.getElementById(
-        "fiberSmall"
-    ).textContent =
+    document.getElementById("fiberSmall").textContent =
         menu.nutrition?.fiber?.small || "-";
 
-
-    document.getElementById(
-        "fiberLarge"
-    ).textContent =
+    document.getElementById("fiberLarge").textContent =
         menu.nutrition?.fiber?.large || "-";
 
 
@@ -484,9 +289,7 @@ async function showMenu(date) {
        WAKTU UPDATE
     ------------------------------------- */
 
-    document.getElementById(
-        "updateText"
-    ).textContent =
+    document.getElementById("updateText").textContent =
         `Terakhir diperbarui: ${menu.updated}`;
 }
 
@@ -496,28 +299,17 @@ async function showMenu(date) {
 ========================================= */
 
 const prevDayButton =
-    document.getElementById(
-        "prevDay"
-    );
-
+    document.getElementById("prevDay");
 
 if (prevDayButton) {
 
-    prevDayButton.addEventListener(
-        "click",
-        function () {
+    prevDayButton.addEventListener("click", function () {
 
-            currentDate.setDate(
-                currentDate.getDate() - 1
-            );
+        currentDate.setDate(currentDate.getDate() - 1);
 
+        showMenu(currentDate);
 
-            showMenu(
-                currentDate
-            );
-
-        }
-    );
+    });
 
 }
 
@@ -527,28 +319,17 @@ if (prevDayButton) {
 ========================================= */
 
 const nextDayButton =
-    document.getElementById(
-        "nextDay"
-    );
-
+    document.getElementById("nextDay");
 
 if (nextDayButton) {
 
-    nextDayButton.addEventListener(
-        "click",
-        function () {
+    nextDayButton.addEventListener("click", function () {
 
-            currentDate.setDate(
-                currentDate.getDate() + 1
-            );
+        currentDate.setDate(currentDate.getDate() + 1);
 
+        showMenu(currentDate);
 
-            showMenu(
-                currentDate
-            );
-
-        }
-    );
+    });
 
 }
 
@@ -558,10 +339,7 @@ if (nextDayButton) {
 ========================================= */
 
 const yearElement =
-    document.getElementById(
-        "year"
-    );
-
+    document.getElementById("year");
 
 if (yearElement) {
 
@@ -575,6 +353,4 @@ if (yearElement) {
    LOAD AWAL
 ========================================= */
 
-showMenu(
-    currentDate
-);
+showMenu(currentDate);
