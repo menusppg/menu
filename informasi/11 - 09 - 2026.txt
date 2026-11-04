@@ -1,11 +1,11 @@
 {
     "2026-09-11": {
         "title": "Menu Makan Bergizi",
-        "rice": "Jagung",
-        "mainDish": "Telur Rebus",
-        "vegetable": "Kacang Merah",
-        "fruit": "Jeruk",
-        "drink": "Fla Susu",
+        "carbohydrate": "Jagung",
+        "animalProtein": "Telur Rebus",
+        "plantProtein": "Kacang Merah",
+        "vegetable": "Jeruk",
+        "fruit": "Fla Susu",
         "nutrition": {
             "energy": {
                 "small": "450",
