@@ -25,9 +25,9 @@
             },
             "fiber": {
                 "small": "7.2",
-                "large": "6.5"
+                "large": "6.54"
             }
         },
-        "updated": "05 November 2026 pukul 03.55"
+        "updated": "05 November 2026 pukul 03.56"
     }
 }
