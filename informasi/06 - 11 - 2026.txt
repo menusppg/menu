@@ -1,0 +1,33 @@
+{
+    "2026-11-06": {
+        "title": "Menu Makan Bergizi",
+        "carbohydrate": "Nasi",
+        "animalProtein": "Lumpia Ayam",
+        "plantProtein": "Tahu gr dadu tumis",
+        "vegetable": "Tumis Sawi Jagung",
+        "fruit": "Kelengkeng",
+        "nutrition": {
+            "energy": {
+                "small": "377.36",
+                "large": "772.78"
+            },
+            "protein": {
+                "small": "10.96",
+                "large": "21.31"
+            },
+            "fat": {
+                "small": "15.28",
+                "large": "28.98"
+            },
+            "carbohydrate": {
+                "small": "54.36",
+                "large": "114.2"
+            },
+            "fiber": {
+                "small": "1",
+                "large": "1.35"
+            }
+        },
+        "updated": "06 November 2026 pukul 03.29"
+    }
+}
