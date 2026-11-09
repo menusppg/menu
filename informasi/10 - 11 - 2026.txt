@@ -1,0 +1,33 @@
+{
+    "2026-11-10": {
+        "title": "Menu Makan Bergizi",
+        "carbohydrate": "Nasi",
+        "animalProtein": "Chicken Bulgogi",
+        "plantProtein": "Tahu Kukus",
+        "vegetable": "Tumis Kuning Kol Wortel",
+        "fruit": "Semangka",
+        "nutrition": {
+            "energy": {
+                "small": "391.62",
+                "large": "724.25"
+            },
+            "protein": {
+                "small": "12.84",
+                "large": "21.74"
+            },
+            "fat": {
+                "small": "15.96",
+                "large": "27.56"
+            },
+            "carbohydrate": {
+                "small": "55.7",
+                "large": "105.97"
+            },
+            "fiber": {
+                "small": "1.41",
+                "large": "1.76"
+            }
+        },
+        "updated": "10 November 2026 pukul 05.47"
+    }
+}
