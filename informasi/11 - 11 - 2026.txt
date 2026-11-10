@@ -1,0 +1,33 @@
+{
+    "2026-11-11": {
+        "title": "Menu Makan Bergizi",
+        "carbohydrate": "Nasi Putih",
+        "animalProtein": "Telur Bacem",
+        "plantProtein": "Tempe Woku",
+        "vegetable": "Enoki Krispi",
+        "fruit": "Kelengkeng",
+        "nutrition": {
+            "energy": {
+                "small": "376.68",
+                "large": "696.15"
+            },
+            "protein": {
+                "small": "13.84",
+                "large": "23.36"
+            },
+            "fat": {
+                "small": "15.63",
+                "large": "22.47"
+            },
+            "carbohydrate": {
+                "small": "51.09",
+                "large": "106.75"
+            },
+            "fiber": {
+                "small": "2.81",
+                "large": "3.91"
+            }
+        },
+        "updated": "11 November 2026 pukul 06.09"
+    }
+}
