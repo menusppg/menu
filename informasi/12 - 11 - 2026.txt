@@ -1,0 +1,33 @@
+{
+    "2026-11-12": {
+        "title": "Menu Makan Bergizi",
+        "carbohydrate": "Nasi",
+        "animalProtein": "Chicken Saus Tiram",
+        "plantProtein": "Tahu Walik",
+        "vegetable": "Blanch labu jagung",
+        "fruit": "Jeruk",
+        "nutrition": {
+            "energy": {
+                "small": "480.36",
+                "large": "862.42"
+            },
+            "protein": {
+                "small": "14.81",
+                "large": "24.27"
+            },
+            "fat": {
+                "small": "19.18",
+                "large": "29.07"
+            },
+            "carbohydrate": {
+                "small": "66.79",
+                "large": "131.84"
+            },
+            "fiber": {
+                "small": "4.85",
+                "large": "5.47"
+            }
+        },
+        "updated": "12 November 2026 pukul 05.19"
+    }
+}
