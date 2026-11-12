@@ -1,0 +1,33 @@
+{
+    "2026-11-13": {
+        "title": "Menu Makan Bergizi",
+        "carbohydrate": "Ubi Ungu Kukus",
+        "animalProtein": "Telur Puyuh",
+        "plantProtein": "Kacang Kedelai Goreng",
+        "vegetable": "Blanch Wortel Jagung",
+        "fruit": "Pisang",
+        "nutrition": {
+            "energy": {
+                "small": "468.72",
+                "large": "870.7"
+            },
+            "protein": {
+                "small": "15.69",
+                "large": "29.8"
+            },
+            "fat": {
+                "small": "19.99",
+                "large": "38.48"
+            },
+            "carbohydrate": {
+                "small": "68.06",
+                "large": "115.91"
+            },
+            "fiber": {
+                "small": "5.42",
+                "large": "8.36"
+            }
+        },
+        "updated": "13 November 2026 pukul 06.29"
+    }
+}
