@@ -307,6 +307,13 @@ if (prevDayButton) {
 
         currentDate.setDate(currentDate.getDate() - 1);
 
+        // Lewati Sabtu dan Minggu
+        if (currentDate.getDay() === 0) {
+            currentDate.setDate(currentDate.getDate() - 2);
+        } else if (currentDate.getDay() === 6) {
+            currentDate.setDate(currentDate.getDate() - 1);
+        }
+
         showMenu(currentDate);
 
     });
@@ -326,6 +333,13 @@ if (nextDayButton) {
     nextDayButton.addEventListener("click", function () {
 
         currentDate.setDate(currentDate.getDate() + 1);
+
+        // Lewati Sabtu dan Minggu
+        if (currentDate.getDay() === 6) {
+            currentDate.setDate(currentDate.getDate() + 2);
+        } else if (currentDate.getDay() === 0) {
+            currentDate.setDate(currentDate.getDate() + 1);
+        }
 
         showMenu(currentDate);
 
