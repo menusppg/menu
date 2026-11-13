@@ -91,6 +91,13 @@ body {
     font-size: 30px;
 }
 
+.logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
 .header h1 {
     font-size: 27px;
     font-weight: 800;
@@ -588,3 +595,5 @@ footer {
     font-weight: 600;
     color: var(--text);
 }
+
+
