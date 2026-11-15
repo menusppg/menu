@@ -18,6 +18,6 @@
                 "fiber": "2.37 g"
             }
         },
-        "updated": "16 November 2026 pukul 05.46"
+        "updated": "16 November 2026 pukul 05.51"
     }
 }
