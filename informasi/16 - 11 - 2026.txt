@@ -1,0 +1,23 @@
+{
+    "2026-11-16": {
+        "title": "Makan Bergizi Gratis",
+        "menu": "Nasi + Ayam Katsu + Tahu Bumbu Kuning + Sup Oyong + Jeruk",
+        "nutrition": {
+            "large": {
+                "energy": "773.1 kkal",
+                "protein": "21.79 g",
+                "fat": "24.58 g",
+                "carbohydrate": "125.41 g",
+                "fiber": "3.21 g"
+            },
+            "small": {
+                "energy": "371.97 kkal",
+                "protein": "12.18 g",
+                "fat": "16.22 g",
+                "carbohydrate": "51.98 g",
+                "fiber": "2.37 g"
+            }
+        },
+        "updated": "16 November 2026 pukul 05.46"
+    }
+}
