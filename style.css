@@ -59,6 +59,7 @@ body {
 }
 
 
+
 /* =========================================
    HEADER
 ========================================= */
@@ -66,13 +67,15 @@ body {
 .header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
-    gap: 14px;
+    gap: 10px;
 
     margin-bottom: 24px;
 }
 
-.logo {
+.logo,
+.logo-right {
     width: 58px;
     height: 58px;
 
@@ -80,22 +83,35 @@ body {
     align-items: center;
     justify-content: center;
 
-    background: var(--primary-light);
-
-    border-radius: 18px;
-
     flex-shrink: 0;
 }
 
-.logo-icon {
-    font-size: 30px;
+.logo {
+    background: var(--primary-light);
+    border-radius: 18px;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
 }
 
 .logo-image {
     width: 100%;
     height: 100%;
+
     object-fit: contain;
+
     display: block;
+}
+
+.header-title {
+    flex: 1;
+    min-width: 0;
 }
 
 .header h1 {
@@ -114,6 +130,7 @@ body {
 
     font-size: 14px;
 }
+
 
 
 /* =========================================
