@@ -1,0 +1,33 @@
+{
+    "2026-11-17": {
+        "title": "Makan Bergizi Gratis",
+        "carbohydrate": "Nasi Liwet",
+        "animalProtein": "Telur Balado",
+        "plantProtein": "Semur Tempe",
+        "vegetable": "Acar Kuning",
+        "fruit": "Kelengkeng",
+        "nutrition": {
+            "energy": {
+                "small": "365.71",
+                "large": "701.23"
+            },
+            "protein": {
+                "small": "13.08",
+                "large": "22.82"
+            },
+            "fat": {
+                "small": "14.62",
+                "large": "20.6"
+            },
+            "carbohydrate": {
+                "small": "49.2",
+                "large": "110.91"
+            },
+            "fiber": {
+                "small": "1.86",
+                "large": "3.11"
+            }
+        },
+        "updated": "17 November 2026 pukul 06.10"
+    }
+}
