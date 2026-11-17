@@ -1,0 +1,33 @@
+{
+    "2026-11-18": {
+        "title": "Makan Bergizi Gratis",
+        "carbohydrate": "Nasi Daun Jeruk",
+        "animalProtein": "Ayam Kuluyuk",
+        "plantProtein": "Tahu Goreng Gurih",
+        "vegetable": "Lalapan Kol Timun",
+        "fruit": "Pisang Ambon Grade A",
+        "nutrition": {
+            "energy": {
+                "small": "359.17",
+                "large": "749.65"
+            },
+            "protein": {
+                "small": "10.04",
+                "large": "21.21"
+            },
+            "fat": {
+                "small": "14.83",
+                "large": "25.71"
+            },
+            "carbohydrate": {
+                "small": "58.87",
+                "large": "123.1"
+            },
+            "fiber": {
+                "small": "2.43",
+                "large": "2.75"
+            }
+        },
+        "updated": "18 November 2026 pukul 06.36"
+    }
+}
