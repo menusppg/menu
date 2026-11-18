@@ -1,0 +1,33 @@
+{
+    "2026-11-19": {
+        "title": "Makan Bergizi Gratis",
+        "carbohydrate": "Nasi Putih",
+        "animalProtein": "Lele goreng/Tuna Krispi bb pepes",
+        "plantProtein": "Tumis Tempe",
+        "vegetable": "Cah Kacang Panjang Garlic",
+        "fruit": "Semangka",
+        "nutrition": {
+            "energy": {
+                "small": "347.62",
+                "large": "709.88"
+            },
+            "protein": {
+                "small": "13.13",
+                "large": "23.5"
+            },
+            "fat": {
+                "small": "12.8",
+                "large": "22.95"
+            },
+            "carbohydrate": {
+                "small": "50.45",
+                "large": "107.58"
+            },
+            "fiber": {
+                "small": "1.68",
+                "large": "2.97"
+            }
+        },
+        "updated": "19 November 2026 pukul 05.40"
+    }
+}
