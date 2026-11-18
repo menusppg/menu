@@ -28,6 +28,6 @@
                 "large": "2.75"
             }
         },
-        "updated": "18 November 2026 pukul 06.36"
+        "updated": "18 November 2026 pukul 08.33"
     }
 }
