@@ -1,0 +1,33 @@
+{
+    "2026-11-20": {
+        "title": "Makan Bergizi Gratis",
+        "carbohydrate": "Nasi",
+        "animalProtein": "Semur Bakso",
+        "plantProtein": "Tahu Balado",
+        "vegetable": "Capcay Goreng",
+        "fruit": "Pear",
+        "nutrition": {
+            "energy": {
+                "small": "366.66",
+                "large": "699.76"
+            },
+            "protein": {
+                "small": "11.39",
+                "large": "21.22"
+            },
+            "fat": {
+                "small": "14.34",
+                "large": "22.56"
+            },
+            "carbohydrate": {
+                "small": "52.72",
+                "large": "110.38"
+            },
+            "fiber": {
+                "small": "4.5",
+                "large": "6.83"
+            }
+        },
+        "updated": "20 November 2026 pukul 06.22"
+    }
+}
