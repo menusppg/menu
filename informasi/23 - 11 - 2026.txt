@@ -1,0 +1,33 @@
+{
+    "2026-11-23": {
+        "title": "Makan Bergizi Gratis",
+        "carbohydrate": "Nasi",
+        "animalProtein": "Chicken Blackpepper",
+        "plantProtein": "Sup Tahu",
+        "vegetable": "Pakcoy Garlic",
+        "fruit": "Melon",
+        "nutrition": {
+            "energy": {
+                "small": "386.71",
+                "large": "666.15"
+            },
+            "protein": {
+                "small": "13.12",
+                "large": "20.57"
+            },
+            "fat": {
+                "small": "14.96",
+                "large": "24.93"
+            },
+            "carbohydrate": {
+                "small": "55.85",
+                "large": "97.79"
+            },
+            "fiber": {
+                "small": "1.23",
+                "large": "1.64"
+            }
+        },
+        "updated": "23 November 2026 pukul 05.49"
+    }
+}
