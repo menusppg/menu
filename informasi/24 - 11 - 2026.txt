@@ -1,0 +1,33 @@
+{
+    "2026-11-24": {
+        "title": "Makan Bergizi Gratis",
+        "carbohydrate": "Nasi Putih",
+        "animalProtein": "Telur Rendang",
+        "plantProtein": "Tempe Mendoan",
+        "vegetable": "Tumis Toge Kacang Panjang",
+        "fruit": "Kelengkeng",
+        "nutrition": {
+            "energy": {
+                "small": "406.63",
+                "large": "779.28"
+            },
+            "protein": {
+                "small": "13.86",
+                "large": "23.6"
+            },
+            "fat": {
+                "small": "15.59",
+                "large": "25.44"
+            },
+            "carbohydrate": {
+                "small": "51.13",
+                "large": "106.14"
+            },
+            "fiber": {
+                "small": "1.86",
+                "large": "3.43"
+            }
+        },
+        "updated": "24 November 2026 pukul 05.54"
+    }
+}
