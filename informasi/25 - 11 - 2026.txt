@@ -1,0 +1,33 @@
+{
+    "2026-11-25": {
+        "title": "Makan Bergizi Gratis",
+        "carbohydrate": "Nasi Kuning",
+        "animalProtein": "Ayam Serundeng",
+        "plantProtein": "Tahu Orek",
+        "vegetable": "Acar Wortel Timun",
+        "fruit": "Semangka",
+        "nutrition": {
+            "energy": {
+                "small": "371.39",
+                "large": "779.28"
+            },
+            "protein": {
+                "small": "13.02",
+                "large": "23.6"
+            },
+            "fat": {
+                "small": "14.41",
+                "large": "25.44"
+            },
+            "carbohydrate": {
+                "small": "45.16",
+                "large": "106.14"
+            },
+            "fiber": {
+                "small": "1.08",
+                "large": "3.43"
+            }
+        },
+        "updated": "25 November 2026 pukul 06.06"
+    }
+}
