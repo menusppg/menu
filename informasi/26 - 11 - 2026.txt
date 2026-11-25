@@ -1,0 +1,33 @@
+{
+    "2026-11-26": {
+        "title": "Makan Bergizi Gratis",
+        "carbohydrate": "Nasi Putih",
+        "animalProtein": "Ayam Rica-rica Kemangi",
+        "plantProtein": "Tempe Goreng Ketumbar",
+        "vegetable": "Cah Sawi Putih Wortel",
+        "fruit": "Jeruk Medan",
+        "nutrition": {
+            "energy": {
+                "small": "396",
+                "large": "732.83"
+            },
+            "protein": {
+                "small": "13.01",
+                "large": "24.17"
+            },
+            "fat": {
+                "small": "17.56",
+                "large": "28.77"
+            },
+            "carbohydrate": {
+                "small": "54.58",
+                "large": "105.48"
+            },
+            "fiber": {
+                "small": "2.88",
+                "large": "4.06"
+            }
+        },
+        "updated": "26 November 2026 pukul 05.43"
+    }
+}
