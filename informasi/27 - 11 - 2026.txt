@@ -1,0 +1,33 @@
+{
+    "2026-11-27": {
+        "title": "Makan Bergizi Gratis",
+        "carbohydrate": "Roti Burger",
+        "animalProtein": "Chicken Patty",
+        "plantProtein": "Kacang Tanah Goreng",
+        "vegetable": "Timun, Tomat, Selada",
+        "fruit": "Pisang",
+        "nutrition": {
+            "energy": {
+                "small": "466.6",
+                "large": "688"
+            },
+            "protein": {
+                "small": "15.7",
+                "large": "27.5"
+            },
+            "fat": {
+                "small": "22.27",
+                "large": "40.4"
+            },
+            "carbohydrate": {
+                "small": "65.1",
+                "large": "70.4"
+            },
+            "fiber": {
+                "small": "3.0",
+                "large": "3.8"
+            }
+        },
+        "updated": "27 November 2026 pukul 05.37"
+    }
+}
